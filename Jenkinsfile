@@ -12,7 +12,10 @@ pipeline {
         stage('Testing') {
             agent none
             steps {
-                echo 'TESTING STAGE'
+                sh'''curl 172.17.0.10
+                curl 172.17.0.10
+                curl 172.17.0.10
+                '''
             } 
         }
     }
