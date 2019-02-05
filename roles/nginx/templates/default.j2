@@ -1,0 +1,33 @@
+upstream balance {
+        server {{ web_ip1 }};
+        server {{ web_ip2 }};
+        server {{ web_ip3 }};
+}
+
+server {
+   listen 5000;
+   index / ;
+   server_name {{ web_ip1 }};
+   location / {
+       try_files $uri $uri/ =404;
+   }
+}
+
+server {
+   listen 5000;
+   index / ;
+   server_name {{ web_ip2 }};
+   location / {
+       try_files $uri $uri/ =404;
+   }
+}
+
+server {
+   listen 5000;
+   index / ;
+   server_name {{ web_ip3 }};
+   location / {
+       try_files $uri $uri/ =404;
+   }
+}
+

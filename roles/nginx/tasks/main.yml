@@ -6,10 +6,11 @@
     - "8888:80"
     interactive: yes
     image: ubuntu
-    entrypoint: apt update -y && apt install nginx -y && service start nginx
 - name: Update packages
-  shell: ssh jenkins@172.17.0.7 sudo apt update -y
+  shell: docker exec Nginx-b apt update -y
 - name: Install Nginx
-  shell: ssh jenkins@172.17.0.7 sudo apt install nginx -y
+  shell: docker exec Nginx-b apt install nginx -y
+- name: Template
+  template: src=default.j2 dest=~/DEFAULT
 - name: Check Nginx
-  shell: curl 172.17.0.10:8888
+  shell: curl 172.17.0.10
