@@ -1,0 +1,9 @@
+[all]
+172.17.0.5     ansible_connection=ssh        ansible_user=jenkins
+172.17.0.6     ansible_connection=ssh        ansible_user=jenkins
+
+[web-app]
+172.17.0.5     ansible_connection=ssh        ansible_user=jenkins
+
+[nginx]
+172.17.0.6     ansible_connection=ssh        ansible_user=jenkins

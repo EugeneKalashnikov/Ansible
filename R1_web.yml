@@ -1,0 +1,10 @@
+---
+- hosts web-app
+- name: web-app
+  docker_container:
+    name: web-app_ans
+    image: 112212/web-app
+    exposed_ports: 
+     - 5000
+    
+

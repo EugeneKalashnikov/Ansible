@@ -1,0 +1,10 @@
+---
+- name: Install pip
+  shell: sudo apt-get install python-pip -y
+- name: Install docker-py
+  shell: sudo pip install docker-py
+- name: Install Docker
+  shell: cd / && sudo sh get-docker.sh
+- name: Check Docker
+  shell: docker -v
+     

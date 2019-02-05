@@ -1,0 +1,12 @@
+---
+- hosts: all
+  roles: 
+    - docker
+- hosts: web-app
+  roles:
+    - web-app
+- hosts: nginx
+  roles:
+    - nginx
+
+

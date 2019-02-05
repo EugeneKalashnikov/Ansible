@@ -1,0 +1,30 @@
+---
+- name: ping
+  ping:
+- name: docker cont
+  docker_container:
+    name: "web-app_ans{{ item }}"
+    ports:
+     - "50{{ item }}0:5000"
+    interactive: yes 
+    image: 112212/stud-exam:web-app_latest
+  with_sequence: count=3
+
+- name: check web-app1 
+  get_url:
+    url: http://172.17.0.7:5000
+    dest: .
+- name: check web-app2
+  get_url:
+    url: http://172.17.0.8:5000
+    dest: .
+- name: check web-app3
+  get_url:
+    url: http://172.17.0.9:5000
+    dest: .
+
+
+
+
+    
+

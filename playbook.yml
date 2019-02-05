@@ -1,0 +1,10 @@
+---
+- name: Install 
+  hosts: all
+  remote_user: root
+  tasks:
+    - name: Install Docker
+      shell: cd / && sudo sh get-docker.sh
+    - name: Check Docker
+      shell: docker -v
+     
