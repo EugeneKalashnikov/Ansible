@@ -1,6 +1,7 @@
 ---
 - name: Install pip
-  shell: sudo apt-get install python-pip -y
+  shell: apt-get install python-pip -y
+  become_user: root
 - name: Install docker-py
   shell: sudo pip install docker-py
 - name: Install Docker
