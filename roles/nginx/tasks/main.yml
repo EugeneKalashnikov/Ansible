@@ -9,8 +9,10 @@
 - name: Update packages
   shell: docker exec Nginx-b apt update -y
 - name: Install Nginx
-  shell: docker exec Nginx-b apt install nginx -y
-- name: Template
+  shell: docker exec Nginx-b apt install nginx -y && service nginx start
+- name: Copying template
   template: src=default.j2 dest=~/DEFAULT
+- name: Restarting service Nginx
+  shell: docker exec Nginx-b service nginx restart
 - name: Check Nginx
   shell: curl 172.17.0.10
