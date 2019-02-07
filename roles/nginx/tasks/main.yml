@@ -7,9 +7,9 @@
     interactive: yes
     image: ubuntu
 - name: Update packages
-  shell: docker exec Nginx-b apt update -y
+  shell: docker exec Nginx-b apt-get update -y
 - name: Install Nginx
-  shell: docker exec Nginx-b apt install nginx -y && service nginx start
+  shell: docker exec Nginx-b apt-get install nginx -y && service nginx start
 - name: Copying template
   template: src=default.j2 dest=~/DEFAULT
 - name: Restarting service Nginx
