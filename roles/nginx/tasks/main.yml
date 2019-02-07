@@ -4,6 +4,7 @@
     name: "Nginx-b"
     ports:
     - "8888:80"
+    state: present
     command: apt-get update -y
     interactive: yes
     image: ubuntu
