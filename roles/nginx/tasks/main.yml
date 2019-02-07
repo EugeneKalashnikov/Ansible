@@ -5,10 +5,11 @@
     ports:
     - "8888:80"
     state: present
-    command: apt-get update -y
     interactive: yes
     image: ubuntu
   become: yes
+- name: Update and install nginx
+  shell: docker exec -i Nginx-b apt-get update -y && apt-get install -y nginx && service nginx start
 - name: Create template
   template: src=default.j2 dest=~/nginx.conf
   become: yes
