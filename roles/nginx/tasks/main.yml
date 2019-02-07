@@ -8,7 +8,7 @@
     image: ubuntu
   become: yes
 - name: Update packages
-  shell: sudo docker exec Nginx-b sudo apt update -y
+  shell: sudo docker exec Nginx-b apt update -y
   become: yes
 - name: Install Nginx
   shell: docker exec Nginx-b sudo apt install nginx -y && service nginx start
