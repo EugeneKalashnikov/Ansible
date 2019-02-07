@@ -16,12 +16,9 @@
   shell: docker exec nginx-b yum install -y nginx
 - name: Create template
   template: src=default.j2 dest=~/nginx.conf
-- name: Kill nginx process
-  shell: docker exec nginx-b kill -QUIT $( cat /usr/local/nginx/logs/nginx.pid )
-  become: yes
 - name: Copying 
   shell: docker cp ~/nginx.conf nginx-b:/etc/nginx/nginx.conf
-- name: Start nginx
-  shell: docker exec nginx-b nginx
+- name: Reload nginx config
+  shell: docker exec nginx-b nginx -s reload
 - name: Check nginx
   shell: curl 172.17.0.10
