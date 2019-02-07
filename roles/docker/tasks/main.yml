@@ -6,8 +6,7 @@
   shell: pip install docker-py
   become: yes
 - name: Install Docker
-  shell: cd / && sh get-docker.sh
-  become: yes
+  shell: cd / && sudo sh get-docker.sh
 - name: Check Docker
   shell: docker -v
      
