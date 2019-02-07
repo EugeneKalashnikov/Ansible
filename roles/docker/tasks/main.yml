@@ -5,6 +5,10 @@
 - name: Install docker-py
   shell: pip install docker-py
   become: yes
+- name: Check if apache is installed
+  command: dpkg-query -l docker
+  ignore_errors: True
+  register: deb_check
 - name: Install Docker
   shell: cd / && sudo sh get-docker.sh
   when: deb_check.stderr.find('no packages found') != -1
