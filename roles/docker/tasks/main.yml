@@ -2,11 +2,11 @@
 - name: Install pip
   shell: apt install python-pip -y
   become: yes
-- name: Install docker-py
-  shell: pip install docker-py
-  become: yes
 - name: Install docker
   shell: apt install docker -y
+  become: yes
+- name: Install docker-py
+  shell: pip install docker-py
   become: yes
 - name: Check Docker
   shell: docker -v
