@@ -4,7 +4,7 @@
     name: "Nginx-b"
     ports:
     - "8888:80"
-    state: present
+    state: started
     interactive: yes
     image: ubuntu
   become: yes
