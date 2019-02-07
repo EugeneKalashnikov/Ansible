@@ -9,7 +9,6 @@
     interactive: yes 
     image: 112212/stud-exam:web-app_latest
   with_sequence: count=3
-
 - name: check web-app1 
   get_url:
     url: http://{{ web_ip1 }}:5000
