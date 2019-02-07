@@ -9,11 +9,15 @@
   become: yes
 - name: Update packages
   shell: docker exec Nginx-b apt-get update -y
+  become: yes
 - name: Install Nginx
   shell: docker exec Nginx-b apt-get install nginx -y && service nginx start
+  become: yes
 - name: Copying template
   template: src=default.j2 dest=~/DEFAULT
+  become: yes
 - name: Restarting service Nginx
   shell: docker exec Nginx-b service nginx restart
+  become: yes
 - name: Check Nginx
   shell: curl 172.17.0.10
