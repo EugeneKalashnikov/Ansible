@@ -12,15 +12,15 @@
 
 - name: check web-app1 
   get_url:
-    url: http://172.17.0.7:5000
+    url: http://{{ web_ip1 }}:5000
     dest: .
 - name: check web-app2
   get_url:
-    url: http://172.17.0.8:5000
+    url: http://{{ web_ip2 }}:5000
     dest: .
 - name: check web-app3
   get_url:
-    url: http://172.17.0.9:5000
+    url: http://{{ web_ip3 }}:5000
     dest: .
 
 
