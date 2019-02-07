@@ -19,7 +19,5 @@
   template: src=default.j2 dest=~/nginx.conf
 - name: Copying 
   shell: docker cp ~/nginx.conf nginx-b:/etc/nginx/nginx.conf
-- name: Check configuration
-  shell: docker exec nginx-b 'nginx'
 - name: Check nginx
   shell: curl 172.17.0.10
