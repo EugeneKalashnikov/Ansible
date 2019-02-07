@@ -12,7 +12,7 @@
 - name: Update
   shell: docker exec nginx-b yum update -y 
 - name: Install epel
-  shell:docker exec nginx-b yum install -y epel-release
+  shell: docker exec nginx-b yum install -y epel-release
 - name: Install nginx
   shell: docker exec nginx-b yum install -y nginx
 - name: Create template
