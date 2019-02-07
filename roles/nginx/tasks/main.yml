@@ -9,7 +9,7 @@
     image: centos
   become: yes
 - name: Update and install Nginx
-  shell: docker exec -i Nginx-b yum update -y && yum install -y epel-release nginx && service nginx start
+  shell: docker exec -i Nginx-b yum update -y && yum install -y epel-release && yum install -y nginx
 - name: Create template
   template: src=default.j2 dest=~/nginx.conf
   become: yes
