@@ -7,7 +7,6 @@
     state: started
     interactive: yes
     image: centos
-    recreate: yes 
   become: yes
 - name: Update
   shell: docker exec nginx-b yum update -y 
