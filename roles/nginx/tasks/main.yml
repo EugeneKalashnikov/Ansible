@@ -1,22 +1,23 @@
 --- 
-- name: Create container for Nginx
+- name: Create container for nginx
   docker_container:
-    name: "Nginx-b"
+    name: "nginx-b"
     ports:
     - "8888:80"
     state: started
     interactive: yes
     image: centos
   become: yes
-- name: Update and install Nginx
-  shell: docker exec -i Nginx-b yum update -y && yum install -y epel-release && yum install -y nginx
+- name: Update and install epel
+  shell: docker exec nginx-b yum update -y && yum install -y epel-release
+- name: Install nginx
+  shell: docker exec nginx-b yum install -y nginx
 - name: Create template
   template: src=default.j2 dest=~/nginx.conf
-  become: yes
 - name: Copying 
-  shell: docker cp ~/nginx.conf Nginx-b:/etc/nginx/nginx.conf
-- name: Restarting service Nginx
-  shell: docker exec Nginx-b service nginx restart
+  shell: docker cp ~/nginx.conf nginx-b:/etc/nginx/nginx.conf
+- name: Restarting service nginx
+  shell: docker exec nginx-b nginx -r
   become: yes
-- name: Check Nginx
+- name: Check nginx
   shell: curl 172.17.0.10
