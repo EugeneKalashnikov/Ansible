@@ -6,14 +6,15 @@
     - "8888:80"
     state: started
     interactive: yes
+    command: yum update -y
     image: centos
   become: yes
-- name: Update and install epel
-  shell: docker exec nginx-b yum update -y && yum install -y epel-release
-  become: yes
+- name: Update
+  shell: docker exec nginx-b yum update -y 
+- name: Install epel
+  shell:docker exec nginx-b yum install -y epel-release
 - name: Install nginx
-  shell: docker exec nginx-b 'yum install -y nginx'
-  become: yes
+  shell: docker exec nginx-b yum install -y nginx
 - name: Create template
   template: src=default.j2 dest=~/nginx.conf
 - name: Copying 
