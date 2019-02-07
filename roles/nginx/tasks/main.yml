@@ -6,7 +6,6 @@
     - "8888:80"
     state: started
     interactive: yes
-    command: yum update -y
     image: centos
   become: yes
 - name: Update
