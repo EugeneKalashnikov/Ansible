@@ -1,5 +1,5 @@
 http {
-    upstream myapp1 {
+    upstream web-app {
            server {{ web_ip1 }};
            server {{ web_ip2 }};
            server {{ web_ip3 }};
@@ -9,7 +9,7 @@ http {
         listen 80;
 
         location / {
-            proxy_pass http://myapp1;
+            proxy_pass http://web-app;
         }
     }
 }
