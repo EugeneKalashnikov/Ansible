@@ -8,5 +8,8 @@
 - name: Install docker-py
   shell: pip install docker-py
   become: yes
+- name: Permit docker sock
+  shell: chmod 770 /var/run/docker.sock
+  become: yes
 - name: Check Docker
   shell: docker -v
