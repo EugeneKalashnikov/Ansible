@@ -9,9 +9,11 @@
     image: centos
   become: yes
 - name: Update and install epel
-  shell: docker exec nginx-b 'yum update -y && yum install -y epel-release'
+  shell: docker exec nginx-b yum update -y && yum install -y epel-release
+  become: yes
 - name: Install nginx
   shell: docker exec nginx-b 'yum install -y nginx'
+  become: yes
 - name: Create template
   template: src=default.j2 dest=~/nginx.conf
 - name: Copying 
