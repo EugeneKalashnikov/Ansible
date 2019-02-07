@@ -9,5 +9,6 @@
   apt:
     pkg: docker
     state: latest
+  become: yes
 - name: Check Docker
   shell: docker -v
