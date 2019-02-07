@@ -7,6 +7,6 @@
   become: yes
 - name: Install Docker
   shell: cd / && sudo sh get-docker.sh
+  when: docker -v == "not found"
 - name: Check Docker
   shell: docker -v
-     
