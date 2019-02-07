@@ -6,6 +6,7 @@
     - "8888:80"
     interactive: yes
     image: ubuntu
+  become: yes
 - name: Update packages
   shell: docker exec Nginx-b apt-get update -y
 - name: Install Nginx
