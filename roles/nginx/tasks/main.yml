@@ -8,10 +8,10 @@
     image: ubuntu
   become: yes
 - name: Update packages
-  shell: sudo docker exec Nginx-b apt update -y
+  shell: sudo docker exec Nginx-b apt-get update -y
   become: yes
 - name: Install Nginx
-  shell: docker exec Nginx-b sudo apt install nginx -y && service nginx start
+  shell: docker exec Nginx-b sudo apt-get install nginx -y && service nginx start
   become: yes
 - name: Copying template
   template: src=default.j2 dest=~/DEFAULT
