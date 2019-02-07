@@ -9,7 +9,7 @@
     image: centos
   become: yes
 - name: Update and install epel
-  shell: docker exec nginx-b yum 'update -y && yum install -y epel-release'
+  shell: docker exec nginx-b 'yum update -y && yum install -y epel-release'
 - name: Install nginx
   shell: docker exec nginx-b 'yum install -y nginx'
 - name: Create template
