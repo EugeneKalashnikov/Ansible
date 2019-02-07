@@ -8,6 +8,7 @@
      - "50{{ item }}0:5000"
     interactive: yes 
     image: 112212/stud-exam:web-app_latest
+  become: yes
   with_sequence: count=3
 - name: Check web app 1
   get_url:
