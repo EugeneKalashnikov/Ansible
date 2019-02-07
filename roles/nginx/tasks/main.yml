@@ -22,6 +22,6 @@
 - name: Copying 
   shell: docker cp ~/nginx.conf nginx-b:/etc/nginx/nginx.conf
 - name: Start nginx
-   shell: docker exec nginx-b nginx
+  shell: docker exec nginx-b nginx
 - name: Check nginx
   shell: curl 172.17.0.10
