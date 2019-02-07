@@ -4,14 +4,9 @@
     name: "Nginx-b"
     ports:
     - "8888:80"
+    command: apt-get update -y && apt-get install nginx && service nginx start
     interactive: yes
     image: ubuntu
-  become: yes
-- name: Update packages
-  shell: sudo docker exec Nginx-b apt-get update -y
-  become: yes
-- name: Install Nginx
-  shell: docker exec Nginx-b sudo apt-get install nginx -y && service nginx start
   become: yes
 - name: Copying template
   template: src=default.j2 dest=~/DEFAULT
