@@ -22,9 +22,9 @@
     state: stopped
 - name: Copying 
   shell: docker cp ~/nginx.conf nginx-b:/etc/nginx/nginx.conf
-- name: Reload config nginx
-  shell: docker exec nginx-b nginx -s reload
-- name: Wait for reloading nginx (30 sec)
+- name: Start nginx
+  shell: docker exec nginx-b nginx
+- name: Wait for nginx (30 sec)
   pause:
     seconds: 30
 - name: Check nginx
