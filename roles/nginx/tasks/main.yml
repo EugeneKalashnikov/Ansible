@@ -19,7 +19,7 @@
 - name: Stop nginx
   service: 
     name: nginx
-      state: stopped
+    state: stopped
 - name: Copying 
   shell: docker cp ~/nginx.conf nginx-b:/etc/nginx/nginx.conf
 - name: Reload config nginx
