@@ -22,10 +22,15 @@
     state: stopped
 - name: Copying 
   shell: docker cp ~/nginx.conf nginx-b:/etc/nginx/nginx.conf
-- name: Start nginx
-  shell: docker exec nginx-b nginx
-- name: Wait for nginx (30 sec)
-  pause:
-    seconds: 30
+- name: Try to start new nginx
+  block:
+    - name: Start nginx
+      shell: docker exec nginx-b nginx
+    - name: Wait for nginx (30 sec)
+      pause:
+        seconds: 30
+  rescue:
+    - name: Restart nginx
+      shell: docker exec nginx-b nginx -s reload
 - name: Check nginx
   shell: curl 172.17.0.10
