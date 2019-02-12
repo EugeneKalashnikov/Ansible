@@ -1,6 +1,14 @@
 pipeline {
     agent any
     stages {
+        stage('Starting Ansible agents') {
+            agent none
+            steps {
+                sh 'docker start ansible_host1'
+            }
+            steps {
+                sh 'docker start ansible_host2'
+            }
         stage('Ansible play') {
             agent none
             steps {
