@@ -24,12 +24,12 @@
   shell: docker cp ~/nginx.conf nginx-b:/etc/nginx/nginx.conf
   block:
     - name: Try to start nginx
-      shell: docker exec nginx-b nginx
+      command: docker exec nginx-b nginx
     - name: Wait for nginx (30 sec)
       pause:
         seconds: 30
   rescue:
     - name: Restart nginx
-      shell: docker exec nginx-b nginx -s reload
+      command: docker exec nginx-b nginx -s reload
 - name: Check nginx
   shell: curl 172.17.0.10
