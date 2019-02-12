@@ -18,10 +18,10 @@
   template: src=default.j2 dest=~/nginx.conf
 - name: Copying 
   shell: docker cp ~/nginx.conf nginx-b:/etc/nginx/nginx.conf
+- name: Starting nginx
+  shell: docker exec nginx-b nginx -s start
 - name: Wait for starting nginx (30 sec)
   pause:
     seconds: 30
-- name: Reload nginx config
-  shell: docker exec nginx-b nginx -s reload
 - name: Check nginx
   shell: curl 172.17.0.10
