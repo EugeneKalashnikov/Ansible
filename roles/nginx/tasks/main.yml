@@ -16,16 +16,15 @@
   shell: docker exec nginx-b yum install -y nginx
 - name: Create template
   template: src=default.j2 dest=~/nginx.conf
+- name: Stop nginx
+  name: nginx
+    state: stopped
 - name: Copying 
   shell: docker cp ~/nginx.conf nginx-b:/etc/nginx/nginx.conf
-- name: Wait for starting nginx (60 sec)
-  pause:
-    seconds: 60
-- name: Start service if stopped  
-  service:
-    name: nginx
-    state: started
 - name: Reload config nginx
   shell: docker exec nginx-b nginx -s reload
+- name: Wait for reloading nginx (30 sec)
+  pause:
+    seconds: 30
 - name: Check nginx
   shell: curl 172.17.0.10
