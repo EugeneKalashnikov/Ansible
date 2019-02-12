@@ -9,6 +9,7 @@ pipeline {
             steps {
                 sh 'docker start ansible_host2'
             }
+        }
         stage('Ansible play') {
             agent none
             steps {
