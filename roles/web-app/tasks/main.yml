@@ -10,6 +10,9 @@
     image: 112212/stud-exam:web-app_latest
   become: yes
   with_sequence: count=3
+- name: Wait 1 minute while start apps
+  pause:
+    minutes: 1
 - name: Check web app 1
   get_url:
     url: http://{{ web_ip1 }}:5000
