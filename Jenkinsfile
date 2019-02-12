@@ -5,8 +5,6 @@ pipeline {
             agent none
             steps {
                 sh 'docker start ansible_host1'
-            }
-            steps {
                 sh 'docker start ansible_host2'
             }
         }
