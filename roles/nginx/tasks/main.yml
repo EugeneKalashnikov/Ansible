@@ -22,9 +22,8 @@
     state: stopped
 - name: Copying 
   shell: docker cp ~/nginx.conf nginx-b:/etc/nginx/nginx.conf
-- name: Try to start new nginx
   block:
-    - name: Start nginx
+    - name: Try to start nginx
       shell: docker exec nginx-b nginx
     - name: Wait for nginx (30 sec)
       pause:
