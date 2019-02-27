@@ -1,13 +1,12 @@
 ---
 - name: Install pip
-  apt:
-    name: python-pip
-  become: yes
-- name: Install docker
-  shell: apt install docker -y
-  become: yes
-- name: Install docker-py
-  shell: pip install docker-py
+   apt:
+     name: "{{ packages }}"
+  vars:
+    packages:
+    - python-pip
+    - docker
+    - docker-py
   become: yes
 - name: Permit docker sock
   shell: chmod 770 /var/run/docker.sock
