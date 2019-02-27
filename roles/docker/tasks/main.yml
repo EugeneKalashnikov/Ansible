@@ -1,7 +1,7 @@
 ---
 - name: Install pip
-  shell: apt install python-pip -y
-  become: yes
+  apt:
+    name: python-pip
 - name: Install docker
   shell: apt install docker -y
   become: yes
